@@ -73,8 +73,8 @@ RUN apt -y install --no-install-recommends kali-linux-${KALI_PACKAGE}
 # RUN apt install -y kali-linux-everything
 RUN curl -fsSL "https://get.docker.com/" | sh
 RUN apt install -y pipx
-RUN pipx install exegol
 RUN pipx ensurepath
+RUN pipx install exegol
 RUN exegol install ad
 
 
