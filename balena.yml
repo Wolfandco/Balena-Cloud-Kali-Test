@@ -1,0 +1,14 @@
+name: BalenaKali
+type: sw.application
+description: >-
+  The Kali Docker image can be used to create a simple "drop box" for penetration testing. 
+  After provisioning, devices in the Kali fleet can be dropped into a target network allowing penetration testing to continue remotely with all the tools included in a basic kali installation.
+assets:
+  repository:
+    type: blob.asset
+    data:
+      url: 'https://github.com/Wolfandco/Balena-Cloud-Kali-Image'
+data:
+  applicationEnvironmentVariables:
+  defaultDeviceType: raspberrypi4-64
+version: 1.0.0
