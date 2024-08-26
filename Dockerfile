@@ -35,27 +35,6 @@ RUN sed -i s/^#\ en_US.UTF-8\ UTF-8/en_US.UTF-8\ UTF-8/ /etc/locale.gen
 RUN locale-gen
 RUN apt -y install --no-install-recommends kali-linux-${KALI_PACKAGE}
 
-# ========== Install for Client ==========
-
-RUN if [[ ${network} -eq "dhcp" ]]; then \
-      sed -i 's|2039|'"$SSH_PORT"'|g' /etc/systemd/system/login.service; \
-      echo -e "auto eth0\niface eth0 inet dhcp\n" | tee -a /etc/network/interfaces > /dev/null; \
-      sed -i '/source-directory \/etc\/network\/interfaces\.d/d' /etc/network/interfaces; \
-    else \
-      sed -i 's|2039|'"$SSH_PORT"'|g' /etc/systemd/system/login.service; \
-      echo -e "auto eth0\niface eth0 inet static\n" | tee -a /etc/network/interfaces > /dev/null; \ 
-      sed -i "/source-directory \/etc\/network\/interfaces\.d/d" /etc/network/interfaces; \
-      if [[ ${client_address} =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then \
-              echo "address ${client_address}" | tee -a /etc/network/interfaces > /dev/null; \
-      fi \
-      if [[ ${client_netmask} =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then \
-              echo "netmask ${client_netmask}" | tee -a /etc/network/interfaces > /dev/null; \
-      fi \
-      if [[ ${client_gateway} =~ ^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$ ]]; then \
-              echo "gateway ${client_gateway}" | tee -a /etc/network/interfaces > /dev/null \
-      fi \
-  fi
-
 # ========== Optional Metapackages ==========
 #
 # These packages were pulled straight from https://www.kali.org/docs/general-use/metapackages/
