@@ -3,7 +3,7 @@ The Balena Cloud platform allows for the remote management of IOT devices. This 
 
 ## Installation
 ### Single Click Deploy
-[![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/Wolfandco/Balena-Cloud-Kali-Image)
+[![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/Wolfandco/Balena-Cloud-Kali-Test)
 
 ### Balena CLI Install
 1. Get project files `git clone https://github.com/T3ch404`
