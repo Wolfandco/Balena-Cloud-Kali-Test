@@ -38,13 +38,6 @@ RUN apt -y install --no-install-recommends kali-linux-${KALI_PACKAGE}
 
 # ========== Install for Client ==========
 
-RUN hostname "${dboxname}"
-RUN echo "${dboxname}" | tee /etc/hostname >/dev/null
-RUN sed -i "/127.0.0.1/s/ .*/ ${dboxname}/" /etc/hosts
-RUN service hostname restart
-
-# Selecting Port
-
 RUN if [[ ${network} -eq "dhcp" ]]; then \
       sed -i 's|2039|'"$SSH_PORT"'|g' /etc/systemd/system/login.service; \
       echo -e "auto eth0\niface eth0 inet dhcp\n" | tee -a /etc/network/interfaces > /dev/null; \
