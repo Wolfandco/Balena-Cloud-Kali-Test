@@ -81,10 +81,10 @@ RUN exegol install ad
 
 # ========= Start Script Creation ==========
 
-RUN echo "#!/bin/bash" > /startkali.sh
-RUN echo "/etc/init.d/ssh start" >> /startkali.sh
-RUN echo "/bin/bash" >> /startkali.sh
-RUN chmod 755 /startkali.sh
+RUN echo "#!/bin/bash" > startkali.sh
+RUN echo "/etc/init.d/ssh start" >> startkali.sh
+RUN echo "/bin/bash" >> startkali.sh
+RUN chmod 755 startkali.sh
 
 # ========== Non-Root User Creation ==========
 
@@ -100,4 +100,4 @@ RUN echo "Port $SSH_PORT" >>/etc/ssh/sshd_config
 EXPOSE ${SSH_PORT}
 WORKDIR "/root"
 ENTRYPOINT ["/bin/bash"]
-CMD ["/startkali.sh"]
+CMD ["startkali.sh"]
