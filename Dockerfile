@@ -20,7 +20,6 @@ ARG SSH_PORT="20022"            # Default SSH port (Update port)
 ARG BUILD_ENV="arm64"           # Arcitecture (amd64, arm64, armhf, armel, i386)
 ARG UNAME="user"                # Non-root username
 ARG UPASS="password123"         # Non-root password
-ARG dboxname="kali"             # Update to whatever you want
 ARG network="static"            # If DHCP, change to DHCP
 ARG client_address="192.168.1.2" # Change based on client address
 ARG client_netmask="255.255.255.0" # Changed based on client netmask
