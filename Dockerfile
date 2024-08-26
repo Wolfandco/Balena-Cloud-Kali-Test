@@ -75,7 +75,7 @@ RUN curl -fsSL "https://get.docker.com/" | sh
 RUN apt install -y pipx
 RUN pipx ensurepath
 RUN pipx install exegol
-RUN source ~/.bashrc
+SHELL ["/bin/bash", "-c", "source ~/.bashrc"]
 RUN exegol install ad
 
 
